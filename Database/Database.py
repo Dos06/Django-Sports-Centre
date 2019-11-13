@@ -137,8 +137,7 @@ def sqlite3_add_member_to_db(name, surname, login, password, gender, age, activi
     cur = con.cursor()
     person = [name, surname, login, password, gender, age, activity]
     cur.execute('INSERT INTO users (Name, Surname, Login, Password, Gender, Age, Activity) '
-                'VALUES(?, ?, ?, ?, ?, ?, ?)',
-                person)
+                'VALUES(?, ?, ?, ?, ?, ?, ?)', person)
     con.commit()
     cur.close()
     con.close()
