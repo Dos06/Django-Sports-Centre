@@ -1,1 +1,2 @@
 # privet dosu
+# privet asiinu
