@@ -190,12 +190,14 @@ def sqlite3_get_user(table, activity):
 
 
 # sqlite3_create_db()
-# sqlite3_delete_table('DB.sqlite3', 'users')
-# sqlite3_update_record('DB.sqlite3', 'users', 'Login', 'fedor', 'Surname', 'Yemelyanenko')
-# sqlite3_read_db('DB.sqlite3', 'users')  # sqlite3_read_db('DB.sqlite3', 'users', 'Name')
+# sqlite3_delete_table(r'C:\Users\agaga\PycharmProjects\Django-Sports-Centre\DB.sqlite3', 'users')
+# sqlite3_update_record(r'C:\Users\agaga\PycharmProjects\Django-Sports-Centre\DB.sqlite3',
+#                       'users', 'Surname', 'McGregor', 'Password', 'conorpass')
+# sqlite3_read_db(r'C:\Users\agaga\PycharmProjects\Django-Sports-Centre\DB.sqlite3',
+#                 'users')  # sqlite3_read_db(DB.sqlite3', 'users', 'Name')
 # Name may be replaced by any column
 
-# sqlite3_delete_record('DB.sqlite3', 'users', 'Login', 'bekezhan')
+# sqlite3_delete_record(r'C:\Users\agaga\PycharmProjects\Django-Sports-Centre\DB.sqlite3', 'users', 'Login', 'bekezhan')
 
 # sqlite3_add_member_to_db('Mariya', 'Sharapova', 'mariya', 'mariyapass', 'Female', 32, 'crossfit')
 # sqlite3_add_member_to_db('Sabina', 'Altynbekova', 'sabina', 'sabinapass', 'Female', 23, 'volleyball')
