@@ -54,7 +54,7 @@ def sqlite3_read_db(database, table, column_name=None):
     con = sqlite3.connect(database)
     # create a cursor object
     cur = con.cursor()
-    query_columns = 'pragma table_info(' + table + ')'
+    query_columns = 'PRAGMA table_info(' + table + ')'
     cur.execute(query_columns)
     columns_description = cur.fetchall()
     columns_names = []
@@ -173,16 +173,27 @@ def sqlite3_add_member_to_table(table, name, surname, gender, age):
     con.close()
 
 
-def sqlite3_get_user(table, activity):
+def sqlite3_get_users_by_activity(table, activity):
     con = sqlite3.connect(r'C:\Users\agaga\PycharmProjects\Django-Sports-Centre\DB.sqlite3')
     cur = con.cursor()
+
+    # print columns' names
+    query_columns = 'PRAGMA table_info(' + table + ')'
+    cur.execute(query_columns)
+    columns_description = cur.fetchall()
+    columns_names = []
+    for column in columns_description:
+        if column[1] != 'Login' and column[1] != 'Password' and column[1] != 'Activity':
+            columns_names.append(column[1])
 
     query = "SELECT Name, Surname, Gender, Age FROM " + table + " WHERE Activity = " + '"' + activity + '"'
     cur.execute(query)
 
-    persons_activity = []
-    for pers in persons_activity:
-        sqlite3_add_member_to_table('"' + activity + '"', pers)
+    data = cur.fetchall()
+    print_data_in_table(columns_names, data)
+
+    # for pers in data:             # UNCOMMENT TO ADD ALL 'Activity' PERSONS TO TABLE
+    #     sqlite3_add_member_to_table('"' + activity + '"', pers[0], pers[1], pers[2], pers[3])
 
     con.commit()
     cur.close()
@@ -214,7 +225,7 @@ def sqlite3_get_user(table, activity):
 # sqlite3_create_table('gym')
 # sqlite3_create_table('volleyball')
 
-# sqlite3_get_user('users', 'crossfit')
+# sqlite3_get_users_by_activity('users', 'crossfit')
 
 # sqlite3_add_member_to_table('crossfit', 'Dosbol', 'Bakhtiyar', 'Male', 19)
 # sqlite3_add_member_to_table('crossfit', 'Mariya', 'Sharapova', 'Female', 32)
