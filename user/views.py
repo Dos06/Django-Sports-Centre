@@ -3,5 +3,12 @@ from django.http import HttpResponse
 
 
 # Create your views here.
-def show(request):
+
+# a test function
+def test(request):
     return HttpResponse('TEST RESPONSE')
+
+
+# a function to show User's homepage
+def index(request):
+    return HttpResponse("<h1>User App Homepage<h1>")

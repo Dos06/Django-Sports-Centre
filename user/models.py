@@ -21,3 +21,12 @@ class User(models.Model):
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name
+
+
+# example how to create a record in DB (for Dos, Aldy ne trogay)
+# user = User(first_name='Lyudmila',
+#             last_name='Issayeva',
+#             gender='Female',
+#             login='lyudmila',
+#             password='lyudmilapass',
+#             activity='volleyball')
