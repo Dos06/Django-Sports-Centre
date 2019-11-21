@@ -31,8 +31,8 @@ class User(models.Model):
     activity = models.CharField(('Activity'), max_length=50, choices=SUBSCRIPTION_TYPE_CHOICES)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name + ' ' + self.gender + ' ' + self.activity
-    # TO-DO ADD AGE (don't know why there is no column 'Age')
+        return 'ID: ' + str(self.member_id) + ', \t' + self.first_name + ' ' + self.last_name + \
+               ', \tGender: ' + self.gender + ', \tAge: ' + str(self.age) + ', \tActivity: ' + self.activity
 
 
 # example how to create a record in DB (for Dos, Aldy ne trogay)
