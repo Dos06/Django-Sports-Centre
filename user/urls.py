@@ -3,6 +3,6 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    # url(r'', views.test),
-    url(r'^$',  views.index, name='index'),     # ^$ means empty space
+    url(r'', views.test),
+    # path()     # ^$ means empty space
 ]
